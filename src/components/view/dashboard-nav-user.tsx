@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronsUpDown, CircleUserRound, LogOut } from "lucide-react";
+import { ChevronDown, CircleUserRound, LogOut } from "lucide-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
@@ -27,19 +27,17 @@ export function NavUser({
 
   return (
     <DropdownMenu modal>
-      <DropdownMenuTrigger asChild>
+      <DropdownMenuTrigger asChild className="rounded-full relative">
         <SidebarMenuButton
-          size="lg"
-          className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground">
-          <Avatar className="h-8 w-8 rounded-lg">
-            <AvatarImage src={user.avatar} alt={user.name} />
-            <AvatarFallback className="rounded-lg">CN</AvatarFallback>
-          </Avatar>
-          <div className="grid flex-1 text-left text-sm leading-tight">
-            <span className="truncate font-semibold">{user.name}</span>
-            <span className="truncate text-xs">{user.email}</span>
+          size="default"
+          className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground w-8 h-8 p-0 m-0 focus:focus-visible:ring-0">
+          <div className="absolute flex justify-center items-center z-10 right-[2px] bottom-0 bg-gray-200 border-2 border-white rounded-full">
+            <ChevronDown className="!size-2" />
           </div>
-          <ChevronsUpDown className="ml-auto size-4" />
+          <Avatar className="h-8 w-8 rounded-full">
+            <AvatarImage src={user.avatar} alt={user.name} />
+            <AvatarFallback>CN</AvatarFallback>
+          </Avatar>
         </SidebarMenuButton>
       </DropdownMenuTrigger>
       <DropdownMenuContent
@@ -49,9 +47,9 @@ export function NavUser({
         sideOffset={4}>
         <DropdownMenuLabel className="p-0 font-normal">
           <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
-            <Avatar className="h-8 w-8 rounded-lg">
+            <Avatar className="h-8 w-8 rounded-full">
               <AvatarImage src={user.avatar} alt={user.name} />
-              <AvatarFallback className="rounded-lg">CN</AvatarFallback>
+              <AvatarFallback>CN</AvatarFallback>
             </Avatar>
             <div className="grid flex-1 text-left text-sm leading-tight">
               <span className="truncate font-semibold">{user.name}</span>
