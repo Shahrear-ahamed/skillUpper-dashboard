@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 import React, { useEffect, useState } from "react";
 import { NavUser } from "./dashboard-nav-user";
@@ -9,16 +10,14 @@ import { Notification } from "./notification";
 
 export default function Header() {
   // set role
-  const [role, setRole] = useState("");
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     const localRole = window.localStorage.getItem("role");
+    const initialRole = localRole || "Your role";
 
-    setRole(localRole || "Your role");
-  }, []);
-
-  dispatch(changeRole(role as string));
+    dispatch(changeRole(initialRole));
+  }, [dispatch]);
 
   const user = {
     name: "Shahrear Ahamed",

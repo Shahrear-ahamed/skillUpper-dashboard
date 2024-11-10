@@ -30,12 +30,12 @@ export default function UserSelect() {
   // handle value change
   const handleRoleChange = (value: string) => {
     dispatch(changeRole(value));
-    handleLocalStorage("role", role);
+    handleLocalStorage("role", value);
   };
 
   // return value
   return (
-    <Select onValueChange={handleRoleChange}>
+    <Select onValueChange={(data) => handleRoleChange(data)}>
       <SelectTrigger className="w-[150px]">
         <SelectValue placeholder={role} />
       </SelectTrigger>
