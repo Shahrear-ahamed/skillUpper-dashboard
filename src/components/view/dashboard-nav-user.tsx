@@ -12,7 +12,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { SidebarMenuButton, useSidebar } from "@/components/ui/sidebar";
+import { Button } from "../ui/button";
 
 export function NavUser({
   user,
@@ -23,26 +23,23 @@ export function NavUser({
     avatar: string;
   };
 }) {
-  const { isMobile } = useSidebar();
-
   return (
     <DropdownMenu modal>
       <DropdownMenuTrigger asChild className="rounded-full relative">
-        <SidebarMenuButton
+        <Button
           size="default"
           className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground w-8 h-8 p-0 m-0 focus:focus-visible:ring-0">
           <div className="absolute flex justify-center items-center z-10 right-[2px] bottom-0 bg-gray-200 border-2 border-white rounded-full">
-            <ChevronDown className="!size-2" />
+            <ChevronDown className="!size-2" color="black" />
           </div>
           <Avatar className="h-8 w-8 rounded-full">
             <AvatarImage src={user.avatar} alt={user.name} />
             <AvatarFallback>CN</AvatarFallback>
           </Avatar>
-        </SidebarMenuButton>
+        </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent
         className="w-[--radix-dropdown-menu-trigger-width] min-w-56 rounded-lg"
-        side={isMobile ? "bottom" : "bottom"}
         align="end"
         sideOffset={4}>
         <DropdownMenuLabel className="p-0 font-normal">

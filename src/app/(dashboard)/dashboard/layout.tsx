@@ -12,7 +12,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <AppSidebar />
       <div className="w-full bg-gray-100">
         <Header />
-        <div className="m-6 p-6 rounded-lg bg-white">{children}</div>
+        <div className="m-3 p-3 md:m-4 md:p-4 lg:m-5 lg:p-5 rounded-lg bg-white">
+          {children}
+        </div>
       </div>
 
       <Button
