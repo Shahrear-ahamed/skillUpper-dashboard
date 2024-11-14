@@ -23,7 +23,7 @@ export function Notification() {
           variant="secondary"
           className="w-14 h-8 rounded-[32px] p-0 flex justify-center items-center">
           <div className="flex justify-center items-center gap-1 relative">
-            <Bell size={20} color="black" />
+            <Bell size={20} />
             <span className="rounded-full bg-red-400 px-1 text-gray-800 text-xs">
               19
             </span>
@@ -49,10 +49,10 @@ export function Notification() {
               className="flex gap-2 items-start w-full">
               <Image src={LiveIcon} width={40} height={40} alt="Live Icon" />
               <div>
-                <div className="text-base text-gray-600">
+                <div className="text-base text-foreground">
                   {notification.title}
                 </div>
-                <div className="text-xs text-gray-500 flex gap-1 w-full">
+                <div className="text-xs text-foreground/80 flex gap-1 w-full">
                   <p>{notification.time}</p>
                   <p className="space-x-1 font-medium">•</p>
                   <p>{notification.course}</p>

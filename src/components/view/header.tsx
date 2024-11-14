@@ -7,6 +7,7 @@ import UserSelect from "../user-select";
 import { useAppDispatch } from "@/hooks/hooks";
 import { changeRole } from "@/lib/features/change-role/changeRoleSlice";
 import { Notification } from "./notification";
+import { ModeToggle } from "./theme-toggle";
 
 export default function Header() {
   // set role
@@ -25,15 +26,17 @@ export default function Header() {
     avatar: "https://github.com/shadcn.png",
   };
   return (
-    <header className="flex justify-between items-center border-b px-4 bg-white h-16">
+    <header className="flex justify-between items-center border-b px-4 bg-background h-16">
       <div>
         <SidebarTrigger className="md:hidden" />
       </div>
-      <div className="flex shrink-0 items-center justify-end gap-2 bg-white">
+      <div className="flex shrink-0 items-center justify-end gap-2 bg-background">
         <div>
           <UserSelect />
         </div>
+        <ModeToggle use="header" />
         <Notification />
+
         <div>
           <NavUser user={user} />
         </div>

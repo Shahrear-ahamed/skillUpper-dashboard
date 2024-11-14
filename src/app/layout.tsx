@@ -2,6 +2,7 @@ import "./globals.css";
 import StoreProvider from "./  StoreProvider";
 import { Hind_Siliguri } from "next/font/google";
 import { Metadata } from "next";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const hindSiliguri = Hind_Siliguri({
   subsets: ["bengali"],
@@ -22,7 +23,13 @@ export default function RootLayout({
     <StoreProvider>
       <html lang="en">
         <body className={`${hindSiliguri.className} antialiased`}>
-          {children}
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange>
+            {children}
+          </ThemeProvider>
         </body>
       </html>
     </StoreProvider>
