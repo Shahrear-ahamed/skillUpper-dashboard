@@ -1,7 +1,7 @@
-import { Button } from "@/components/ui/button";
-import { SidebarProvider } from "@/components/ui/sidebar";
-import { AppSidebar } from "@/components/view/app-sidebar";
-import Header from "@/components/view/header";
+import { Button } from "../../../components/ui/button";
+import { SidebarProvider } from "../../../components/ui/sidebar";
+import { AppSidebar } from "../../../components/view/app-sidebar";
+import Header from "../../../components/view/header";
 import { CircleAlert } from "lucide-react";
 
 import React from "react";
