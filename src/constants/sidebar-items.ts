@@ -17,11 +17,13 @@ export interface ISidebarMenuItems {
   icon: React.ElementType;
   roles: string[];
   isActive?: boolean;
-  items: {
-    title: string;
-    url: string;
-    roles: string[];
-  }[];
+  items: ISidebarSubMenuItems[];
+}
+
+export interface ISidebarSubMenuItems {
+  title: string;
+  url: string;
+  roles: string[];
 }
 
 export default function filterSidebarItems(role: string): ISidebarMenuItems[] {

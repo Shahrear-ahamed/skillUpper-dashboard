@@ -16,7 +16,7 @@ export default function UserSelect() {
     { id: 1, role: "Super Admin" },
     { id: 2, role: "Admin" },
     { id: 3, role: "Course Manager" },
-    { id: 4, role: "Marketing" },
+    { id: 4, role: "Marketer" },
     { id: 5, role: "Call Support" },
     { id: 6, role: "Student" },
     { id: 7, role: "Instructor" },
