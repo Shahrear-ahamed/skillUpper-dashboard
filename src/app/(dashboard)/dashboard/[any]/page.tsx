@@ -4,7 +4,7 @@ import filterSidebarItems, {
   ISidebarSubMenuItems,
 } from "@/constants/sidebar-items";
 import { useAppSelector } from "@/hooks/hooks";
-import { notFound, usePathname } from "next/navigation";
+import { notFound, redirect, usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function Page() {
@@ -20,7 +20,7 @@ export default function Page() {
   const [isValidPath, setIsValidPath] = useState(false);
 
   useEffect(() => {
-    if (!role || !sidebarItems.length) return; // Wait for data to be ready
+    if (!role || !sidebarItems.length) return;
 
     const myLink: ISidebarSubMenuItems[] = [];
     sidebarItems.map((item) => myLink.push(...item.items));
@@ -30,11 +30,18 @@ export default function Page() {
       (items) => items.url.toLowerCase() === normalizedPathName
     );
 
-    if (!checkLink) notFound(); // Trigger error only if path is invalid
-    else setIsValidPath(true); // Mark as valid
-  }, [role, sidebarItems, modifiedPathName]);
+    // if user logged in but user try to visit another route that they don't have any access
+    const findThisUrlData = myLink.find(
+      (data) => data.url === normalizedPathName
+    );
 
-  if (!isValidPath) return null; // Prevent rendering until validation is complete
+    if (!findThisUrlData?.roles.includes(updateRole)) redirect("/dashboard");
+
+    if (!checkLink) notFound();
+    else setIsValidPath(true);
+  }, [role, sidebarItems, modifiedPathName, updateRole]);
+
+  if (!isValidPath) return null;
 
   return (
     <div>

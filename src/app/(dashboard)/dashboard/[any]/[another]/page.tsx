@@ -4,7 +4,7 @@ import filterSidebarItems, {
   ISidebarSubMenuItems,
 } from "@/constants/sidebar-items";
 import { useAppSelector } from "@/hooks/hooks";
-import { notFound, usePathname } from "next/navigation";
+import { notFound, redirect, usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function Page() {
@@ -30,9 +30,17 @@ export default function Page() {
       (items) => items.url.toLowerCase() === normalizedPathName
     );
 
+    // if user logged in but user try to visit another route that they don't have any access
+    const findThisUrlData = myLink.find(
+      (data) => data.url === normalizedPathName
+    );
+
+    if (!findThisUrlData?.roles.includes(updateRole))
+      redirect("/dashboard");
+
     if (!checkLink) notFound(); // Trigger error only if path is invalid
     else setIsValidPath(true); // Mark as valid
-  }, [role, sidebarItems, modifiedPathName]);
+  }, [role, sidebarItems, modifiedPathName, pathname, updateRole]);
 
   if (!isValidPath) return null; // Prevent rendering until validation is complete
 

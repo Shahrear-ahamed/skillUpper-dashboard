@@ -31,7 +31,7 @@ export function Notification() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent
-        className="w-[--radix-dropdown-menu-trigger-width] min-w-96 rounded-lg"
+        className="w-[--radix-dropdown-menu-trigger-width] min-w-80 md:min-w-96 rounded-lg"
         align="end"
         sideOffset={4}>
         <DropdownMenuLabel className="px-3 py-2 flex justify-between items-center">
@@ -48,7 +48,7 @@ export function Notification() {
               key={notification.id}
               className="flex gap-2 items-start w-full">
               <Image src={LiveIcon} width={40} height={40} alt="Live Icon" />
-              <div>
+              <div className="ml-2 cursor-pointer">
                 <div className="text-base text-foreground">
                   {notification.title}
                 </div>

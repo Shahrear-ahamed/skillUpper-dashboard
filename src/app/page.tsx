@@ -22,9 +22,9 @@ export default function Home() {
               />
               Dashboard
             </Link>
-            <ModeToggle use="home" />
+            <ModeToggle />
           </div>
-          <div className="flex justify-center items-center space-x-5">
+          <div className="flex justify-center items-center flex-wrap gap-3">
             <Button className="rounded-full border border-solid border-transparent">
               <Link href="/terms">Terms</Link>
             </Button>

@@ -34,10 +34,10 @@ export default function Header() {
         <div>
           <UserSelect />
         </div>
-        <ModeToggle use="header" />
+        <ModeToggle />
         <Notification />
 
-        <div>
+        <div className="flex">
           <NavUser user={user} />
         </div>
       </div>
