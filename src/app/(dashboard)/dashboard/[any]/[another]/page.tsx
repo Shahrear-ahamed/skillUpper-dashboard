@@ -4,7 +4,7 @@ import filterSidebarItems, {
   ISidebarSubMenuItems,
 } from "@/constants/sidebar-items";
 import { useAppSelector } from "@/hooks/hooks";
-import { notFound, redirect, usePathname } from "next/navigation";
+import { notFound, usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function Page() {
@@ -31,12 +31,12 @@ export default function Page() {
     );
 
     // if user logged in but user try to visit another route that they don't have any access
-    const findThisUrlData = myLink.find(
-      (data) => data.url === normalizedPathName
-    );
+    // const findThisUrlData = myLink.find(
+    //   (data) => data.url === normalizedPathName
+    // );
 
-    if (!findThisUrlData?.roles.includes(updateRole))
-      redirect("/dashboard");
+    // if (!findThisUrlData?.roles.includes(updateRole))
+    //   redirect("/dashboard");
 
     if (!checkLink) notFound(); // Trigger error only if path is invalid
     else setIsValidPath(true); // Mark as valid

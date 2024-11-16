@@ -19,7 +19,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
       <Button
         variant="secondary"
-        className="shadow-lg bg-primary/30 hover:bg-primary/50 duration-300 px-0 p-3 h-12 absolute bottom-10 right-10"
+        className="shadow-lg bg-primary/30 hover:bg-primary/50 duration-300 px-0 p-3 h-12 fixed bottom-10 right-10"
         size="lg">
         <div className="bg-gray-200 flex items-center w-full space-x-2 px-2 py-1 rounded text-black">
           <CircleAlert className="right-2 inline-block" /> <p>সমস্যায় পড়েছি?</p>

@@ -7,7 +7,6 @@ import {
   MonitorPlay,
   NotebookPen,
   Accessibility,
-  UserRoundCog,
   Users,
 } from "lucide-react";
 
@@ -161,29 +160,6 @@ export default function filterSidebarItems(role: string): ISidebarMenuItems[] {
           title: "View Blog",
           url: "/blog-management/view-blog",
           roles: ["admin", "course manager", "instructor", "author"],
-        },
-      ],
-    },
-    {
-      title: "Profile Management",
-      url: "#",
-      icon: UserRoundCog,
-      roles: ["all"], // Available to all roles
-      items: [
-        {
-          title: "Profile",
-          url: "/profile-management/profile",
-          roles: ["all"],
-        },
-        {
-          title: "Password",
-          url: "/profile-management/password",
-          roles: ["all"],
-        },
-        {
-          title: "Transactions/Order History",
-          url: "/profile-management/transactions-history",
-          roles: ["all"],
         },
       ],
     },

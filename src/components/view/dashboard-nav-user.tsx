@@ -13,6 +13,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "../ui/button";
+import Link from "next/link";
 
 export function NavUser({
   user,
@@ -56,10 +57,12 @@ export function NavUser({
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <DropdownMenuItem>
-            <CircleUserRound />
-            Profile
-          </DropdownMenuItem>
+          <Link href="/dashboard/profile">
+            <DropdownMenuItem className="cursor-pointer">
+              <CircleUserRound />
+              Profile
+            </DropdownMenuItem>
+          </Link>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
 
