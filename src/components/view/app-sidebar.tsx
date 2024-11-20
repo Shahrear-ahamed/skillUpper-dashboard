@@ -65,11 +65,11 @@ export function AppSidebar() {
           </SidebarMenu>
         </SidebarGroup>
 
-        <SidebarSeparator
-          className={
-            updateRole === ("student" || "your role") ? "" : "bg-border"
-          }
-        />
+        {updateRole === "student" || updateRole === "your role" ? (
+          ""
+        ) : (
+          <SidebarSeparator className="bg-border" />
+        )}
 
         <SidebarGroup>
           <SidebarGroupContent>
