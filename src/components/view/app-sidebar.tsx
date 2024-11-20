@@ -13,6 +13,7 @@ import {
   SidebarMenuSub,
   SidebarMenuSubButton,
   SidebarMenuSubItem,
+  SidebarSeparator,
 } from "@/components/ui/sidebar";
 import {
   Collapsible,
@@ -20,10 +21,14 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import DashboardSidebarHeader from "./dashboard-sidebar-header";
-import filterSidebarItems from "@/constants/sidebar-items";
 import { useAppSelector } from "@/hooks/hooks";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import {
+  filterSidebarItems,
+  ISidebarSubMenuItems,
+  studentSideBarItems,
+} from "@/constants/sidebar-items";
 
 export function AppSidebar() {
   const pathname = usePathname();
@@ -36,7 +41,36 @@ export function AppSidebar() {
       <SidebarHeader className="h-16 flex justify-center items-center border-b">
         <DashboardSidebarHeader />
       </SidebarHeader>
-      <SidebarContent>
+
+      <SidebarContent className="gap-1">
+        <SidebarGroup>
+          <SidebarMenu className="px-2">
+            {studentSideBarItems.map((studentItems: ISidebarSubMenuItems) => (
+              <SidebarMenuItem key={studentItems.title} className="list-none">
+                <Link
+                  href={`/dashboard${studentItems.url}`}
+                  className="flex space-x-2 items-center w-full h-10">
+                  <SidebarMenuButton
+                    tooltip={studentItems.title}
+                    className="[&>svg]:size-5 !h-10"
+                    isActive={pathname.includes(
+                      studentItems.title.toLowerCase().split(" ").join("-")
+                    )}>
+                    {studentItems.icon && <studentItems.icon />}
+                    <span>{studentItems.title}</span>
+                  </SidebarMenuButton>
+                </Link>
+              </SidebarMenuItem>
+            ))}
+          </SidebarMenu>
+        </SidebarGroup>
+
+        <SidebarSeparator
+          className={
+            updateRole === ("student" || "your role") ? "" : "bg-border"
+          }
+        />
+
         <SidebarGroup>
           <SidebarGroupContent>
             <SidebarMenu className="px-2 gap-2">

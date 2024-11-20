@@ -1,8 +1,6 @@
-import { Button } from "@/components/ui/button";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/view/app-sidebar";
 import Header from "@/components/view/header";
-import { CircleAlert } from "lucide-react";
 
 import React from "react";
 
@@ -17,14 +15,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </div>
       </div>
 
-      <Button
+      {/* <Button
         variant="secondary"
         className="shadow-lg bg-primary/30 hover:bg-primary/50 duration-300 px-0 p-3 h-12 fixed bottom-10 right-10"
         size="lg">
         <div className="bg-gray-200 flex items-center w-full space-x-2 px-2 py-1 rounded text-black">
           <CircleAlert className="right-2 inline-block" /> <p>সমস্যায় পড়েছি?</p>
         </div>
-      </Button>
+      </Button> */}
     </SidebarProvider>
   );
 }

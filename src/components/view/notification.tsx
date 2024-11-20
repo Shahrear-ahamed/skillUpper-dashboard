@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Button } from "../ui/button";
 import Image from "next/image";
+import Link from "next/link";
 
 export function Notification() {
   return (
@@ -64,11 +65,13 @@ export function Notification() {
         <DropdownMenuSeparator />
 
         <DropdownMenuItem className="p-0">
-          <Button
-            variant="ghost"
-            className="w-full border-none shadow-none p-0 font-bold">
-            সবগুলো দেখুন
-          </Button>
+          <Link
+            href="/dashboard/notifications"
+            className="w-full border-none shadow-none p-0">
+            <Button variant="ghost" className="w-full font-bold">
+              সবগুলো দেখুন
+            </Button>
+          </Link>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

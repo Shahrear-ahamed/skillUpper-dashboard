@@ -1,6 +1,7 @@
 "use client";
 
-import filterSidebarItems, {
+import {
+  filterSidebarItems,
   ISidebarSubMenuItems,
 } from "@/constants/sidebar-items";
 import { useAppSelector } from "@/hooks/hooks";

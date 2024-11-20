@@ -1,12 +1,15 @@
 import {
   BookA,
+  BookMinus,
   Briefcase,
   ChartNoAxesCombined,
+  ContactRound,
+  Folders,
   Landmark,
   Megaphone,
+  MessageCircleQuestion,
   MonitorPlay,
   NotebookPen,
-  Accessibility,
   Users,
 } from "lucide-react";
 
@@ -22,11 +25,44 @@ export interface ISidebarMenuItems {
 export interface ISidebarSubMenuItems {
   title: string;
   url: string;
+  icon?: React.ElementType;
   roles: string[];
 }
 
-export default function filterSidebarItems(role: string): ISidebarMenuItems[] {
-  const sidebarMenuItems = [
+const data = {
+  studentSideBarItems: [
+    {
+      title: "My Courses",
+      url: "/my-courses",
+      icon: BookMinus,
+      roles: ["student"],
+    },
+    {
+      title: "Resources",
+      url: "/resources",
+      icon: Folders,
+      roles: ["student"],
+    },
+    {
+      title: "Analytics",
+      url: "/analytics",
+      icon: ChartNoAxesCombined,
+      roles: ["student"],
+    },
+    {
+      title: "Leaderboard",
+      url: "/leaderboard",
+      icon: ContactRound,
+      roles: ["student"],
+    },
+    {
+      title: "Help Desk",
+      url: "/help-desk",
+      icon: MessageCircleQuestion,
+      roles: ["student"],
+    },
+  ],
+  sidebarMenuItems: [
     {
       title: "User Management",
       url: "#",
@@ -232,57 +268,11 @@ export default function filterSidebarItems(role: string): ISidebarMenuItems[] {
         },
       ],
     },
-    {
-      title: "Student Dashboard",
-      url: "#",
-      icon: Accessibility,
-      roles: ["student"], // Only for students
-      items: [
-        {
-          title: "My Courses",
-          url: "/student-dashboard/my-courses",
-          roles: ["student"],
-        },
-        {
-          title: "Resources",
-          url: "/student-dashboard/resources",
-          roles: ["student"],
-        },
-        {
-          title: "Student Analytics",
-          url: "/student-dashboard/student-analytics",
-          roles: ["student"],
-        },
-        {
-          title: "Leaderboard",
-          url: "/student-dashboard/leaderboard",
-          roles: ["student"],
-        },
-        {
-          title: "Assignments",
-          url: "/student-dashboard/assignments",
-          roles: ["student"],
-        },
-        {
-          title: "Help Center",
-          url: "/student-dashboard/help-center",
-          roles: ["student"],
-        },
-        {
-          title: "Submit Tickets",
-          url: "/student-dashboard/submit-tickets",
-          roles: ["student"],
-        },
-        {
-          title: "Tickets",
-          url: "/student-dashboard/tickets",
-          roles: ["student"],
-        },
-      ],
-    },
-  ];
+  ],
+};
 
-  const menuItems = sidebarMenuItems
+const filterSidebarItems = (role: string): ISidebarMenuItems[] => {
+  const menuItems = data.sidebarMenuItems
     .filter((item) => item.roles.includes(role) || item.roles.includes("all"))
     .map((firstMenuItem) => ({
       ...firstMenuItem,
@@ -294,4 +284,8 @@ export default function filterSidebarItems(role: string): ISidebarMenuItems[] {
     }));
 
   return menuItems;
-}
+};
+
+const studentSideBarItems: ISidebarSubMenuItems[] = data.studentSideBarItems;
+
+export { studentSideBarItems, filterSidebarItems };
