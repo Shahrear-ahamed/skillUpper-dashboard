@@ -2,7 +2,6 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { Search, Bell, Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -104,7 +103,7 @@ export function MainNav({
   const [isSearchOpen, setIsSearchOpen] = React.useState(false);
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [isAllCoursesOpen, setIsAllCoursesOpen] = React.useState(false);
-  const pathname = usePathname();
+  // const pathname = usePathname();
 
   const handleOverlayClose = () => {
     setIsSearchOpen(false);
